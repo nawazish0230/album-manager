@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+
+<h2>Add Albums</h2>
+
+<form action="/albums/edit/<%= singleAlbum._id %>" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Artist</label>
+        <input type="text" class="form-control" name="artist" value="<%= singleAlbum.artist %>">
+    </div>
+    <div class="form-group">
+        <label>Album Title</label>
+        <input type="text" class="form-control" name="title" value="<%= singleAlbum.title %>">
+    </div>
+    <div class="form-group">
+    <label>Genre</label>
+    <select name="genre" id="" class="form-control">
+        <% genre.forEach((singleGenre)=>{ %>
+        <option value="<%= singleGenre.name %>"><%= singleGenre.name %></option>
+        <%  }) %>         
+    </select>
+    </div>  
+    <div class="form-group">
+        <label>Album Info</label>
+        <input type="text" class="form-control" name="info" value="<%= singleAlbum.info %>">
+    </div>
+    <div class="form-group">
+        <label>Release Year</label>
+        <input type="text" class="form-control" name="year" value="<%= singleAlbum.year %>">
+    </div>
+    <div class="form-group">
+        <label>Album Cover</label>
+        <!-- <input type="file" class="form-control" name="cover" value="<%= singleAlbum.cover %>"> -->
+        <img src="../../public/<%= singleAlbum.cover %>" alt="">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+    <a href="/albums" class="btn btn-danger">Close</a>
+</form>
+
+<% include ../partials/footer %>

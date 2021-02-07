@@ -1,0 +1,34 @@
+<% include ../partials/header %>
+
+
+<h1><%= singleAlbum.artist %></h1>
+<div class="row album">
+    <div class="col-md-4">
+        <img src="/images/uploads/<%= singleAlbum.cover %>" class="img-fluid" alt="">
+
+    </div>
+    <div class="col-md-8">
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Artist: </strong><%= singleAlbum.artist %></li>
+            <li class="list-group-item"><strong>Album: </strong><%= singleAlbum.title %></li>
+            <li class="list-group-item"><strong>Genre: </strong><%= singleAlbum.genre %></li>
+            <li class="list-group-item"><strong>Release Year: </strong><%= singleAlbum.year %></li>
+            <li class="list-group-item"><strong>Label: </strong><%= singleAlbum.label %></li>
+            <li class="list-group-item"><strong>Tracks: </strong><%= singleAlbum.tracks %></li>
+        </ul>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <h4>Album Info</h4>
+        <p><%= singleAlbum.info %></p>
+        <img src="./images/uploads/1555420652725alluring-attractive-beautiful-839141.jpg" alt="">
+        
+    </div>
+</div>
+
+<hr>
+
+
+<% include ../partials/footer %>

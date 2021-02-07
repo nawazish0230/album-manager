@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+
+<h2>Genres page
+    <% if(isLogged){ %>
+        <a href="genres/add" class="btn btn-success pull-right">Add Genre</a>
+    <% } %>
+</h2>
+
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <% if(isLogged){ %>
+                <th>Edit</th>
+                <th>Delete</th>
+            <% } %>
+        </tr>
+    </thead>
+    <tbody>
+        <% genre.forEach((singleGenre)=>{ %>
+            <tr>
+                <td><%= singleGenre.name %></td>
+                <% if(isLogged){ %>
+                    <td>
+                        <a href="/genres/edit/<%= singleGenre._id %>" class="btn btn-info">Edit</a>
+                    </td>
+                    <td>
+                        <form action="/genres/<%= singleGenre._id %>" method="post">
+                            <button href="" data-id="<%= singleGenre._id %>" class="btn btn-danger delete-genre">Delete</button>
+                        </form>
+                    </td>
+                <% } %>
+            </tr>
+        <%  }) %>         
+    </tbody>
+</table>
+
+
+
+<% include ../partials/footer %>

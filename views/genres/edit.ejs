@@ -1,0 +1,14 @@
+<% include ../partials/header %>
+
+<h2>Edit genres</h2>
+
+<form action="/genres/edit/<%= singleGenre._id %>" method="POST">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" placeholder="Genre Name" name="name" value="<%= singleGenre.name %>">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+    <a href="/genres" class="btn btn-danger">Close</a>
+    
+</form>
+<% include ../partials/footer %>

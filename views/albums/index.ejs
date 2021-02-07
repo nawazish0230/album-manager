@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+
+<div>
+    <% if(isLogged){ %>
+        <a href="albums/add" class="btn btn-success pull-right">Add Albums</a>
+    <% } else {%>
+        <h3 class="text-primary">Welcome to the Music List Manager</h3>
+        <h6 class="text-primary mb-4">Signup or Login to Create or Edit the list</h6>
+    <% } %>
+    </div>
+
+<div class="row mt-5">
+    
+    <% album.forEach((singleAlbum)=>{ %>
+    <div class="col-md-4 albums border-info">
+        <!-- <p><%= singleAlbum.cover %></p> -->
+        <a href="/albums/details/<%= singleAlbum._id %>"><img src="/images/uploads/<%= singleAlbum.cover %>" class="img-fluid" alt=""></a>
+        <h4 class="album-title text-center"><%= singleAlbum.title %></h4>
+        <p class="artist-name text-center"><%= singleAlbum.genre %></p>
+        <% if(isLogged){ %>
+            <div class="d-flex justify-content-center">
+                <a href="/albums/edit/<%= singleAlbum._id %>" class="btn btn-info mr-2">Edit</a>
+                <p>
+                    <form action="/albums/<%= singleAlbum._id %>" method="post">
+                        <button data-id="<%= singleAlbum._id %>" class="btn btn-danger delete-album">Delete</button>
+                    </form>
+                </p>
+            </div>
+        <% } %>
+    </div>
+    <% }) %>
+</div>
+
+
+<% include ../partials/footer %>
